@@ -5,10 +5,26 @@ var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
 myNinjaApp.config(['$routeProvider', function($routeProvider) {
   
   $routeProvider
-    .when('/home',{templateUrl: 'app/views/home.html'})
+    .when('/home',{templateUrl: 'app/views/home.html',controller: 'NinjaController'})
     .when('/directory',{templateUrl: 'app/views/directory.html', controller: 'NinjaController'})
     .otherwise({redirectTo: '/home'});
   }]);
+
+myNinjaApp.directive('randomNinja', [function(){
+  return {
+    restrict: 'E',
+    scope: {ninjas: '=', title: '='},
+    // con esta opcion solo pueedo agregar código
+    // template: '<img ng-src="{{ninjas[0].thumb}}">', 
+    // de esta forma puedo toda una estrucutra a mi conveniencia
+    templateUrl: 'views/random.html', 
+    controller: function($scope){
+      $scope.random = Math.floor(Math.random() * 4);
+
+    }
+  };
+}
+]);
 
 myNinjaApp.controller('NinjaController',['$scope', '$http', function($scope, $http){
   $scope.removeNinja = function(ninja){
