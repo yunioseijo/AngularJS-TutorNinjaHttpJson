@@ -1,0 +1,25 @@
+[{
+	"name": "Yoshi",
+	"belt": "green",
+	"rate": 50,
+	"available": true,
+	"thumb": "content/image/cat-ninja.webp"
+}, {
+	"name": "Crystal",
+	"belt": "yellow",
+	"rate": 30,
+	"available": true,
+	"thumb": "content/image/ninja_octopus.webp"
+}, {
+	"name": "Ryu",
+	"belt": "orange",
+	"rate": 70,
+	"available": false,
+	"thumb": "content/image/ninja_technology.webp"
+}, {
+	"name": "Shaun",
+	"belt": "black",
+	"rate": 100,
+	"available": true,
+	"thumb": "content/image/sloth-ninja-hang.webp"
+}]

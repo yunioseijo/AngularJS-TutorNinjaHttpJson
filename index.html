@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myNinjaApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial net ninja angular JS</title>
+    <link rel="stylesheet" href="content\css\styles.css" typt="text/css" />
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/lib/angular-route.js"></script>
+    <script type="module" src="app\app.js"></script>
+  </head>
+  <body>
+    <!-- en el src debo incluir una comilla simple porque las primeras son del src y
+     las otras del ng-include -->
+    <!-- Esta via funciona per osemanticamente se ve mal mejor uso una etiquetea de html primero
+    <ng-include src="'header.html'"></ng-include> -->
+    <!-- Con esta via se usa como atributos el ng-include y se ve mejor porque
+       empieza con la etiqueta header -->
+    <header ng-include src="'header.html'"></header>
+    <main ng-view></main>
+    
+  </body>
+</html>
