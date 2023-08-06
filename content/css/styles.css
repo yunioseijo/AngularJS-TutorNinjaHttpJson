@@ -160,3 +160,15 @@ main{
   transition-delay: 0.2s;
   transition-duration: 0;
 }
+
+/* Estilos a las validaciones de angular */
+/* al campo input con clases ng-valid y clase ng-touched */
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+  border: 2px solid red;
+}
+
+/* deshabilitar el input submit del formulario cuando no estén bien los campos */
+input[disabled="disabled"]{
+  opacity: 0.4;
+  cursor: not-allowed !important;
+}
