@@ -2,15 +2,22 @@
 var myNinjaApp = angular.module('myNinjaApp', ['ngRoute', 'ngAnimate']);
 
 // creo el método config usando el objeto routeProvider
-myNinjaApp.config(['$routeProvider', function($routeProvider) {
+myNinjaApp.config(['$routeProvider','$locationProvider', function($routeProvider,locationProvider) {
   
+  locationProvider.html5Mode(true);
+
   $routeProvider
     .when('/home',
     {templateUrl: 'app/views/home.html',
     controller: 'NinjaController'
     })
     .when('/contact',
-    {templateUrl: 'app/views/contact.html'
+    {templateUrl: 'app/views/contact.html',
+    controller: 'ContactController'
+    })
+    .when('/contact-success',
+    {templateUrl: 'app/views/contact-success.html',
+    controller: 'ContactController'
     })
     .when('/directory',
     {templateUrl: 'app/views/directory.html',
@@ -86,5 +93,15 @@ myNinjaApp.controller('NinjaController',['$scope', '$http', function($scope, $ht
     // Manejar el error en caso de que ocurra
     console.error('Error al obtener los datos:', error);
   });
+
+}]);
+
+// Contact Controller
+myNinjaApp.controller('ContactController', ['$scope', '$location', function ($scope, $location)
+{
+  $scope.sendMessage = function(){
+    console.log('Redirecion to contact-successfully') 
+    $location.path('/contact-success');
+  }
 
 }]);
