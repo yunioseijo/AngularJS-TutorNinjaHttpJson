@@ -1,12 +1,21 @@
 // como voy a usar la lib route tengo que pasarla como parametro
-var myNinjaApp = angular.module('myNinjaApp', ['ngRoute']);
+var myNinjaApp = angular.module('myNinjaApp', ['ngRoute', 'ngAnimate']);
 
 // creo el método config usando el objeto routeProvider
 myNinjaApp.config(['$routeProvider', function($routeProvider) {
   
   $routeProvider
-    .when('/home',{templateUrl: 'app/views/home.html',controller: 'NinjaController'})
-    .when('/directory',{templateUrl: 'app/views/directory.html', controller: 'NinjaController'})
+    .when('/home',
+    {templateUrl: 'app/views/home.html',
+    controller: 'NinjaController'
+    })
+    .when('/contact',
+    {templateUrl: 'app/views/contact.html'
+    })
+    .when('/directory',
+    {templateUrl: 'app/views/directory.html',
+    controller: 'NinjaController'
+    })
     .otherwise({redirectTo: '/home'});
   }]);
 
@@ -18,6 +27,10 @@ myNinjaApp.directive('randomNinja', [function(){
     // template: '<img ng-src="{{ninjas[0].thumb}}">', 
     // de esta forma puedo toda una estrucutra a mi conveniencia
     templateUrl: 'views/random.html', 
+    transclude: true,
+    replace: true, //con esto elimino la etiqueta random-ninja por un div 
+    //que es el primer elemnto del arbol en la vista random.html, si fuera una tag section pues 
+    // se cambiaría por un section y semánticamente es mucho mejor que tener una tag random-ninja
     controller: function($scope){
       $scope.random = Math.floor(Math.random() * 4);
 
@@ -46,6 +59,11 @@ myNinjaApp.controller('NinjaController',['$scope', '$http', function($scope, $ht
     $scope.newninja.name="";
     $scope.newninja.belt="";
     $scope.newninja.rate="";
+  };
+
+  $scope.removeAll = function() {
+    console.log("Removing");
+    $scope.ninjas = [];
   };
 
 
