@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="content\css\styles.css" typt="text/css" />
     <script src="app/lib/angular.min.js"></script>
     <script src="app/lib/angular-route.js"></script>
+    <script src="app/lib/angular-animate.min.js"></script>
     <script type="module" src="app\app.js"></script>
   </head>
   <body>
@@ -17,7 +18,7 @@
     <!-- Con esta via se usa como atributos el ng-include y se ve mejor porque
        empieza con la etiqueta header -->
     <header ng-include src="'header.html'"></header>
-    <main ng-view></main>
+    <main class="fade" ng-view></main>
     
   </body>
 </html>

@@ -53,6 +53,7 @@ main{
 
 .content{
   padding: 20px;
+  overflow: hidden;
 }
 
 .content button,
@@ -93,13 +94,15 @@ main{
   font-size: 22px;
 }
 
-.content input{
+.content input,textarea{
   width: 90%;
   padding: 10px 5%;
   border-radius: 10px;
   border: 2px solid #ddd;
   margin: 10px 0;
 }
+
+
 
 .content input[type="submit"]:last-child{
   width: 150px;
@@ -117,4 +120,43 @@ main{
   color: crimson;
   cursor: pointer;
   margin-left: 10px;
+}
+
+/* Animation */
+
+/* The starting CSS styles for the enter animation */
+.fade.ng-enter {
+  transition: 0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+/* Animacion al insertar con angular*/
+#ninja-list li.ng-enter {
+  transition: 0.5s linear all;
+  opacity:0;
+  transform: translateY(30px);
+} #ninja-list li.ng-enter.ng-enter-active {
+  transition: 0.5s linear all;
+  opacity:1;
+  transform: translateY(0);
+}
+/* Animacion al eliminar con angular */
+#ninja-list li.ng-leave {
+  transition: 0.5s linear all;
+  opacity:1;
+  transform: translateY(0);
+} #ninja-list li.ng-leave.ng-leave-active {
+  transition: 0.5s linear all;
+  opacity:0;
+  transform: translateX(-100%);
+}
+
+/* Animación apilada, ejemplo la eliminacion de varios resgistros a la vez */
+#ninja-list li.ng-leave-stagger {
+  transition-delay: 0.2s;
+  transition-duration: 0;
 }
